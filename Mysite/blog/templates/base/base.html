@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blog</title>
+	{% include "./css.html" %}
+</head>
+<body>
+	<div class="container">
+		{% include "./navbarr.html" %}
+		{% block content %} {% endblock %}
+
+		{% block javascript %}
+
+		{% include "./js.html" %}
+		{% endblock %} 
+	</div>
+</body>
+</html>

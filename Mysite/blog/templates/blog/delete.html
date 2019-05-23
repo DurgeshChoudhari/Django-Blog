@@ -1,0 +1,25 @@
+{% extends "base/base.html" %}
+{%load static %}
+{% block content %}
+<div class="row">
+	
+	<div class="col col-md-6 offset-md-3 border">
+		<center><h1>Delete -{{ object_list.title }}</h1></center>
+		<hr>
+		<h5>{{ object_list.description }}</h5>
+		<hr>
+
+		<div class="col col-md-6 offset-md-9">
+			<form method="POST">
+				{% csrf_token %}
+				<button class="btn btn-danger" onclick="myFunction()"  >Delete</button>
+			</form>
+				<br>
+			</div>
+		</div>
+
+	</div>
+	
+{% endblock %}
+
+

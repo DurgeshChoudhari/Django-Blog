@@ -1,0 +1,30 @@
+{% extends "base/base.html" %}
+{% block content %}
+<div class="row">
+	
+	<div class="col col-md-6 offset-md-3">
+		<center><h1>All Blogs</h1></center>
+		{% if count == 0 %}
+		<hr><center>
+			<img src='http://nordicoutbreak.streamingmuseum.org/wp-content/uploads/no_blog.png' alt='No Blog'>
+			<br>
+			<hr>
+			<a href="{% url 'blog:create' %}">Create first blog</a>
+			</center>
+		{% endif %}
+		{% for obj in object_list %}
+		<a href="{{ obj.get_absolute_url }}">
+			<div class="card">
+				<div class="card-body">
+					<strong>{{ obj.title }} </strong>
+				</div>
+			</div>
+			</a>
+		</br>
+		{% endfor %}
+	</div>
+	
+</div>
+
+{% endblock %}
+

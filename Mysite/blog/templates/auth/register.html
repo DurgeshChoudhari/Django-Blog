@@ -1,0 +1,32 @@
+{% extends "../base/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="row">
+
+<div class="col col-md-4 offset-md-4">
+    <h1><center>Sign Up</center></h1>
+	<form method='POST' class="form-control"> 
+		{% csrf_token %}
+		 {% for error in form.non_field_errors %}
+                    <div class="form-group has-errors text-danger small">
+                        {{error}}
+                    </div>
+                    {% endfor %}
+		{% for field in form %}
+                    <div class="form-group has-errors text-danger small">
+                        {{field.errors}}
+                    </div>
+                    <div class="form-group has-errors text-danger small">
+                    </div>
+                    <div class="form-group">
+                        {{field}}
+                    </div>
+                    {% endfor %}
+		<button type='submit' class='btn btn-success' style="width:100%">Sign Up</button>
+        <a class="nav-link" href="{% url 'blog:login' %}">Login if already account</a>
+	</form> 
+</div>
+
+</div>
+{% endblock content %}

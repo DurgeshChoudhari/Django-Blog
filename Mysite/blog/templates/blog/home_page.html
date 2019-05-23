@@ -1,0 +1,16 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<center> {{ user.username }} <h2>Welcome to My blog:)</h2></center>
+{% else %}
+<center>Please <a href="{% url 'blog:login' %}">Login</a> to create your own posts<h2>Welcome to blog</h2></center>
+{% endif %}
+<hr>
+<div class="col-md-3 offset-md-4">
+
+	<br>
+	<br>
+	<img src='http://1.bp.blogspot.com/-fGuB5EVNWUM/T9lMLeikmwI/AAAAAAAABqo/AokpbbpXzgo/s1600/create_your_own_blog.png' alt='create your own blog'>
+</div>
+{% endblock content %}

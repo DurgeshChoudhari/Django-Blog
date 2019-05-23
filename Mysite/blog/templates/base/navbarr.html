@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="{% url 'blog:home' %}">Blog</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse collapse" id="navbarSupportedContent">
+    {% if user.is_authenticated %}
+    <ul class="nav navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'blog:home' %}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'blog:create' %}">New-Blog</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'blog:blog' %}">All-Blogs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'blog:about' %}">About Us</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'blog:contact' %}">Contact</a>
+      </li>
+
+    </ul>
+    <ul class="nav navbar-nav ml-md-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="">{{ user.username }}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'blog:logout' %}">Logout</a>
+      </li>
+    </ul>
+    
+
+
+    {% else %}
+
+<!-- 
+    {% endif %}
+    
+
+    {% if not request.user.is_authenticated %} -->
+    <ul class="nav navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'blog:about' %}">About Us</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'blog:contact' %}">Contact</a>
+      </li>
+    </ul> 
+    <ul class="nav navbar-nav ml-md-auto">
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'blog:register' %}">Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'blog:login' %}">Login</a>
+      </li>
+      
+    </ul>
+
+    {% endif %}  
+
+  </div>
+</nav>
+
+<br>

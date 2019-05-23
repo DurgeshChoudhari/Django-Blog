@@ -1,0 +1,16 @@
+{% extends "base/base.html" %}
+{% block content %}
+<div class="row">
+	
+	<div class="col col-md-6 offset-md-3">
+		<center><h1>Create Blog</h1></center>
+		<form method="POST" enctype="multipart/form-data" id = 'create_blog'>
+			{% csrf_token %}
+			{{ form.as_p }}
+			<div class="col col-md-6 offset-md-5">
+				<button type="Submit" class="btn btn-success" value='submit'>Send</button>
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock %}
